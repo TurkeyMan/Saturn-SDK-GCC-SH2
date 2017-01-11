@@ -23,6 +23,12 @@ if [ ! -d gcc-${GCCVER} ]; then
 		rm -rf gcc-${GCCVER}
 		exit 1
 	fi
+
+	git clone https://github.com/D-Programming-GDC/GDC.git
+	pushd GDC
+	git checkout gdc-6
+	./setup-gcc.sh ../gcc-${GCCVER}
+	popd
 fi
 
 if [ ! -d newlib-${NEWLIBVER} ]; then
